@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "striped-smile-172707",
+  "private_key_id": "ca909aeb121960c905ce27e9be21dee69b0627c7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDH9GqXWIF8AN27\n8auzXJsRNjoaKtVayZvTmxNM1Tz80Ib/M+9/hvZoccHzp419rDqZA8n8yrkFjgsR\nw++lIACmHJml6H1tlaHkjB05KzSRusr5vMZyeCtjPsURXMxE2v3/BvFvw2x0rIU+\nbbvoxHxlWT3QdVPanXxlU6B2kYcpZT1FVQi4x+nnlVmE+P3Y+CCVPcBP7jAP3n8T\nzBEJ7YDog2TB3D/BEjO3d6kNHm2J/beLTRXbHAheFRVcZqrwNV+/KExI/d1ooAbk\nUJdlUuPwyAB+9z8JUp7iQURq0HeKoKuyqUEblTNJ8fdYZmjbVPTmyFYtqZ8O+yDS\nbjlpjtdZAgMBAAECggEAJO+HSRG2SXu3eeI4f1dZ5aIItZC3/J9FQ59fv0+chm7W\noQms8feySLTKyQFoZ5CK+nzysNmZt+b3MH7rI6t3szeRQk5h7P44+4jOVSMgANNq\nbxtp5PdBvIF50a08pnN1e8iCjMyimiLMMi3/Cg5RlD8Z5gnmRXnV4rnB6GUVfJW9\nSVQR8+MZ2lyOQEkgPDyELesZ9LNepq1BO2MTWX4zrfTm41X7SPNsC+CAsdkU1Mkr\n9NWySswxnh1nw4O8ITjDTJPU+VmFO13ZrxsVRpHgKTwkUjfGopsOwOH9+9IIjBUt\nvRiti6RZeewI6ykE8OFPAwnKh1zJeyrp4KGQkgdSCQKBgQDqpP3vyXFKXy/d0QeC\nzy2Qzg6jKmS5FgKVvMdraPWVS9OufkYrXhkdLj0TRVq8yVaJU7gHu7UIjuC7NimC\nl9kQxudpn9B1FyO1IiPdnjSAx3Q9zfsz5AhdsNvLr/YBnnXodIfQ6l2hGztbkTam\nZDFt4mPQk6dsp7FRBGc6cjGAhwKBgQDaJy8lSQ/fUnbPd7sqUHJ01AOY0NaUKEGr\nqbymCikqwJS2DCn3JHLpzgcv2LqKcBWtORy1IKkt3Cq2PoaV/apUBD2jaF+5VUTk\nqhf+eBdEQ5W0blQfOg/9BIzJLOAJGZh5hSHDVWwTTCjd21yWkTpz2d8DBLp+BkJ5\nEkIC/iJBHwKBgBmFSHlEF6ZXJAWkLoTzs6kEQGNOwRXAZxeSKL5t9AgA700TPt6I\npYKe/NWTvYK7A0Z8bI+qws3jfF3gTjN+AIXqnFDIqQuTMLcKt4vrIRrAlswCE0hZ\njO9jxQQqZz9V1M0rn3oBg516MMKM0LzYOOgSr3iIFrWip46ARBn/QZMRAoGATeo2\n1XtN1vZOBvV9fLR03LMogbj9GrdyFQyvmyH/6AwWURrxFhsHi+gQ+w7OOUmlBFRk\no3CB3CZJfwO/7+xEnHNTTHyny7rfu0fg//sGXFRDMMlC9FA5i6XHXsbPUZC5u5VI\nJMrqqc3Gvs5tOD2wgdYr55kVvpMfxLw3pXf85gMCgYEAkoj4WJKJfXLAxykeQM7i\nIJfOVZ836Ucla9Gcv5d1h0iySb2app/JLQkCHsG/X9xRnmFPKrJNBS7f5zOwn30g\n6R5Rj9ZiuqlO/m85H9B3X2kHXu/bX2m30AV500Ffdlz4kWzQ+JUedMcecZvTO+Zg\naP3ppL8CZ7sv6jKCfIBrIxg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "recognise@striped-smile-172707.iam.gserviceaccount.com",
+  "client_id": "104437376505861561005",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/recognise%40striped-smile-172707.iam.gserviceaccount.com"
+}

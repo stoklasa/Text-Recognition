@@ -35,8 +35,8 @@ namespace GoogleApi
             {
 
                 string imagePath = @"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\imgs\smlouva_2.jpg";
-            //    GoogleVisionQuery(imagePath);
-                Console.WriteLine("end of query");
+                GoogleVisionQuery(imagePath);
+                Console.WriteLine("END_OF_API_REQUEST");
                 string cont = "y";
                 Console.WriteLine("repeat: y/n "+cont);
                 
@@ -48,11 +48,11 @@ namespace GoogleApi
                         break;
                     }
 
-                    Console.WriteLine("You entered Invalid key('" + cont + "'), Try again.");
+                    Console.Write("You entered Invalid key('" + cont + "'), try again. ");
 
                     if (cont.Length > 1)
-                        Console.Write("Also enter single letter please.");
-
+                        Console.Write("Also enter single letter please. ");
+                    Console.WriteLine();
                     cont = Console.ReadLine();
                 }
                 
@@ -70,18 +70,22 @@ namespace GoogleApi
             //  var inImage = client.DetectLabels(image);
             foreach (var annotation in response)
             {
-                if (annotation.Description.Contains("\n"))
-                    File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asString.txt", annotation.Description);
+                if (annotation.Description != null) {
+                    if (annotation.Description.Contains("\n")) {
 
-                if ((annotation.Description != null)&&(!annotation.Description.Contains("\n"))) { 
-                    Console.WriteLine(annotation.Description);
-                    File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asWords.txt", annotation.Description);
+                        File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asString.txt", annotation.Description);
+                    }
 
-                    File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asWordsToString.txt", annotation.Description+" ");
+                    if (!annotation.Description.Contains("\n"))
+                    {
+                        Console.WriteLine(annotation.Description);
 
+                        File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asWords.txt", annotation.Description);
+
+                        File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asWordsToString.txt", annotation.Description + " ");
+                    }
                 }
             }
-
         }
         
         public async Task Run()
@@ -92,9 +96,8 @@ namespace GoogleApi
 
             GoogleCredential credential = await GoogleCredential.GetApplicationDefaultAsync();
 
-            var service = new Oauth2Service(new BaseClientService.Initializer()
+            var service = new Oauth2Service(new BaseClientService.Initializer(){
 
-                {
                     HttpClientInitializer = credential,
                     ApplicationName = "Oauth2 Sample",
                 }

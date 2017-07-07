@@ -37,7 +37,8 @@ namespace GoogleApi
             }
             do{
                 
-                GoogleVisionQuery(imagePath);
+                List<string> results = GoogleVisionQuery(img);
+                
                 Console.WriteLine("END_OF_API_REQUEST");
                 string cont = "y";
                 Console.WriteLine("repeat: y/n "+cont);
@@ -63,17 +64,18 @@ namespace GoogleApi
             } while (!stop);
         }
 
-        public static List<string> GoogleVisionQuery(string filePath)
+        public static List<string> GoogleVisionQuery(Image img)
         {
             List<string> data = new List<string>();
 
-            var image = Image.FromFile(filePath);
+            var image = img;
             var client = ImageAnnotatorClient.Create();
             var response = client.DetectText(image);
-            //  var inImage = client.DetectLabels(image);
+
             foreach (var annotation in response)
-            {
-                data.Add(annotation.Description);
+            {   
+                if (null!=annotation.Description)
+                    data.Add(annotation.Description);
 
             }
             return data;

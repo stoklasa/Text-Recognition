@@ -23,7 +23,6 @@ namespace MyApi
 
         Recognizer(string fontName)
         {
-                  string str = "hello world";
         }
         public char[] getChar(Bitmap bmp)
         {

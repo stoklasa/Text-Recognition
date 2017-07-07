@@ -45,4 +45,51 @@ Hodnocení obsahu oponentem
 MP
 20 bodů - praktická část MP (výrobek, aplikace, program, ...) splnění cile zadání, úplnost, úroveň a obtížnost
 zpracování, funkčnost, grafická stránka (přehlednost, jednoduché ovládání)
+Středníprůmyslováškolaelektrotechnikyainformatiky,Ostrava,prispevkovaorganizace,Kratochvílova1490/7,70200OstravaMoravskáOstravaZadánímaturitnípráceJménoapříjmenížáka:VojtěchStoklasaTřída:školnírok:Oborvzdélání:VedoucíMPE4A2016/201726-41-M/01ElektrotechnikaIng.BoleslavMartiníkTéma:66.ZpracovánísignálůnaPOCZadánímaturitnípráceVytvořeníprogramunazpracovánísignálůsvyužitímfiltrů(Fourierovatransformace)naPC.Programbudevytvorenvevhodnémprogramovacímjazyce(Java,C++,C#)jakoaplikacesgrafickymuzivatelskymrozhraním.Podomluvěsvedoucímpráce,jemožnézměnitprogramovacíjazykavývojovéprostředí,vekterémbudeprogramvytvořen.Grafickéuživatelsképrostředíbudepřehledné,smenu,popupmenu,tlačítky,seznamyapodSoučástípísemnécástibude:rozborfiltrůprozpracovánísignálu(diskrétní,spojitý)rozborkonkrétníchfiltrů,kterébudounaprogramoványpopisovládáníaplikace,zvolenýpostuptvorbyaplikacepoužitémetodyakomponentyapopisyřešenídûležitýchčástíprogramuZpůsobzpracováníapokynykobsahuarozsahumaturitnípráce:Dokumentbudezpracovánpodlezákladníchtypografickýchzásadabudeodpovídatpožadavkůmstanovenýmvdokumentu"ZávaznéRozsahpísemnéprácebudemin.8normostran.Přilohypráce:CDsezdrojovýmisouboryaplikace,písemnáprácevelektronicképodoběMSWord(*.docx)neboOpenOffice(*.odt)aveformátuPDFV1.kontrolnímtermínumusíbýtvytvofenáfunkčníaplikaceV2.kontrolnímtermínubudehotováaplikacearozpracovanádokumentaceprozpracováníahodnocenímaturitnípráce".KritériahodnocenímaturitnípráceHodnoceníobsahuvedoucímMP20bodupraktickáastMP(vyrobek,aplikace,program...)-splněnícílezadání,uplnost,úroveaobtinostzpracování,funkčnost,grafickástránka(přehlednost,jednoduchéovládání)10bodû-písemnádokumentaceobsahdokumentace(úplnost,logickéčlenění,uspořádání),náležitáodbornáúroveň,správnépoužívánítermínů,formálnístránka(dodrženípředepsanychnáležitostí),grafickástránka(přehlednost,respektovánínoremprocitaceapoužitouliteraturu)10bodů-průběžnéhodnocení-aktivitastudenta,tvûrčípřístup,schopnostkomunikace,soustavnostpráce.HodnoceníobsahuoponentemMP20bodů-praktickáčástMP(výrobek,aplikace,program,...)splněnícilezadání,úplnost,úroveňaobtížnostzpracování,funkčnost,grafickástránka(přehlednost,jednoduchéovládání)Střední průmyslová škola elektrotechniky a informatiky, Ostrava,
+prispevkova organizace,
+Kratochvílova 1490/7, 702 00 Ostrava Moravská Ostrava
+Zadání maturitní práce
+Jméno a příjmení žáka:Vojtěch Stoklasa
+Třída:
+školní rok:
+Obor vzdélání:
+Vedoucí MP
+E4A
+2016/2017
+26-41-M/01 Elektrotechnika
+Ing. Boleslav Martiník
+Téma:
+66. Zpracování signálů na POC
+Zadání maturitní práce
+Vytvoření programu na zpracování signálů s využitím filtrů (Fourierova transformace) na PC.
+Program bude vytvoren ve vhodném programovacím jazyce (Java, C++, C#) jako aplikace s grafickym uzivatelskym
+rozhraním. Po domluvě s vedoucím práce, je možné změnit programovací jazyk a vývojové prostředí, ve kterém bude
+program vytvořen. Grafické uživatelské prostředí bude přehledné, s menu, popup menu, tlačítky, seznamy apod
+Součástí písemné cásti bude:
+rozbor filtrů pro zpracování signálu (diskrétní, spojitý)
+rozbor konkrétních filtrů, které budou naprogramovány
+popis ovládání aplikace,
+zvolený postup tvorby aplikace
+použité metody a komponenty a popisy řešení dûležitých částí programu
+Způsob zpracování a pokyny k obsahu a rozsahu maturitní práce:
+Dokument bude zpracován podle základních typografických zásad a bude odpovídat požadavkům stanoveným
+v dokumentu "Závazné
+Rozsah písemné práce bude min. 8 normostran.
+Přilohy práce: CD se zdrojovými soubory aplikace, písemná práce v elektronické podobě MS Word (*.docx) nebo
+OpenOffice (*.odt) a ve formátu PDF
+V 1. kontrolním termínu musí být vytvofená funkční aplikace
+V 2. kontrolním termínu bude hotová aplikace a rozpracovaná dokumentace
+pro zpracování a hodnocení maturitní práce".
+Kritéria hodnocení maturitní práce
+Hodnocení obsahu vedoucím MP
+20 bodu praktická ast MP (vyrobek, aplikace, program. ..)-splnění cíle zadání, uplnost, úrove a obti nost
+zpracování, funkčnost, grafická stránka (přehlednost, jednoduché ovládání)
+10 bodû - písemná dokumentace obsah dokumentace (úplnost, logické členění, uspořádání), náležitá odborná
+úroveň, správné používání termínů, formální stránka (dodržení předepsanych náležitostí), grafická stránka
+(přehlednost, respektování norem pro citace a použitou literaturu)
+10 bodů - průběžné hodnocení - aktivita studenta, tvûrčí přístup, schopnost komunikace, soustavnost práce.
+Hodnocení obsahu oponentem
+MP
+20 bodů - praktická část MP (výrobek, aplikace, program, ...) splnění cile zadání, úplnost, úroveň a obtížnost
+zpracování, funkčnost, grafická stránka (přehlednost, jednoduché ovládání)
 Středníprůmyslováškolaelektrotechnikyainformatiky,Ostrava,prispevkovaorganizace,Kratochvílova1490/7,70200OstravaMoravskáOstravaZadánímaturitnípráceJménoapříjmenížáka:VojtěchStoklasaTřída:školnírok:Oborvzdélání:VedoucíMPE4A2016/201726-41-M/01ElektrotechnikaIng.BoleslavMartiníkTéma:66.ZpracovánísignálůnaPOCZadánímaturitnípráceVytvořeníprogramunazpracovánísignálůsvyužitímfiltrů(Fourierovatransformace)naPC.Programbudevytvorenvevhodnémprogramovacímjazyce(Java,C++,C#)jakoaplikacesgrafickymuzivatelskymrozhraním.Podomluvěsvedoucímpráce,jemožnézměnitprogramovacíjazykavývojovéprostředí,vekterémbudeprogramvytvořen.Grafickéuživatelsképrostředíbudepřehledné,smenu,popupmenu,tlačítky,seznamyapodSoučástípísemnécástibude:rozborfiltrůprozpracovánísignálu(diskrétní,spojitý)rozborkonkrétníchfiltrů,kterébudounaprogramoványpopisovládáníaplikace,zvolenýpostuptvorbyaplikacepoužitémetodyakomponentyapopisyřešenídûležitýchčástíprogramuZpůsobzpracováníapokynykobsahuarozsahumaturitnípráce:Dokumentbudezpracovánpodlezákladníchtypografickýchzásadabudeodpovídatpožadavkůmstanovenýmvdokumentu"ZávaznéRozsahpísemnéprácebudemin.8normostran.Přilohypráce:CDsezdrojovýmisouboryaplikace,písemnáprácevelektronicképodoběMSWord(*.docx)neboOpenOffice(*.odt)aveformátuPDFV1.kontrolnímtermínumusíbýtvytvofenáfunkčníaplikaceV2.kontrolnímtermínubudehotováaplikacearozpracovanádokumentaceprozpracováníahodnocenímaturitnípráce".KritériahodnocenímaturitnípráceHodnoceníobsahuvedoucímMP20bodupraktickáastMP(vyrobek,aplikace,program...)-splněnícílezadání,uplnost,úroveaobtinostzpracování,funkčnost,grafickástránka(přehlednost,jednoduchéovládání)10bodû-písemnádokumentaceobsahdokumentace(úplnost,logickéčlenění,uspořádání),náležitáodbornáúroveň,správnépoužívánítermínů,formálnístránka(dodrženípředepsanychnáležitostí),grafickástránka(přehlednost,respektovánínoremprocitaceapoužitouliteraturu)10bodů-průběžnéhodnocení-aktivitastudenta,tvûrčípřístup,schopnostkomunikace,soustavnostpráce.HodnoceníobsahuoponentemMP20bodů-praktickáčástMP(výrobek,aplikace,program,...)splněnícilezadání,úplnost,úroveňaobtížnostzpracování,funkčnost,grafickástránka(přehlednost,jednoduchéovládání)

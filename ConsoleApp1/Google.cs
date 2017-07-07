@@ -35,19 +35,28 @@ namespace GoogleApi
             {
 
                 string imagePath = @"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\imgs\smlouva_2.jpg";
-                //GoogleVisionQuery(imagePath);
+            //    GoogleVisionQuery(imagePath);
                 Console.WriteLine("end of query");
-                char cont = 'a';
+                string cont = "y";
                 Console.WriteLine("repeat: y/n "+cont);
                 
-                cont = (char)Console.Read();
-                while ((cont != 'n') || (cont != 'y')) {
+                cont = Console.ReadLine();
+                while (true) {
                     
-                    Console.WriteLine("Invalid key, Try again.");
-                    cont = (char)Console.Read();
+                    
+                    if((cont == "n") || (cont == "y")){
+                        break;
+                    }
+
+                    Console.WriteLine("You entered Invalid key('" + cont + "'), Try again.");
+
+                    if (cont.Length > 1)
+                        Console.Write("Also enter single letter please.");
+
+                    cont = Console.ReadLine();
                 }
                 
-                if (cont == 'n')
+                if (cont == "n")
                     stop = true;
                                 
             } while (!stop);

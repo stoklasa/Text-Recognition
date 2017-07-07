@@ -19,6 +19,10 @@ namespace GoogleApi
         static void Main(string[] args)
         {
             bool stop = false;
+            string imagePath = @"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\imgs\smlouva_3.jpg";
+
+            Image img = Image.FromFile(imagePath);
+
             try
             {
                 new TextRecognition().Run().Wait();
@@ -31,10 +35,8 @@ namespace GoogleApi
                 }
 
             }
-            do
-            {
-
-                string imagePath = @"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\imgs\smlouva_2.jpg";
+            do{
+                
                 GoogleVisionQuery(imagePath);
                 Console.WriteLine("END_OF_API_REQUEST");
                 string cont = "y";
@@ -42,7 +44,6 @@ namespace GoogleApi
                 
                 cont = Console.ReadLine();
                 while (true) {
-                    
                     
                     if((cont == "n") || (cont == "y")){
                         break;
@@ -62,30 +63,20 @@ namespace GoogleApi
             } while (!stop);
         }
 
-        public static void GoogleVisionQuery(string filePath)
+        public static List<string> GoogleVisionQuery(string filePath)
         {
+            List<string> data = new List<string>();
+
             var image = Image.FromFile(filePath);
             var client = ImageAnnotatorClient.Create();
             var response = client.DetectText(image);
             //  var inImage = client.DetectLabels(image);
             foreach (var annotation in response)
             {
-                if (annotation.Description != null) {
-                    if (annotation.Description.Contains("\n")) {
+                data.Add(annotation.Description);
 
-                        File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asString.txt", annotation.Description);
-                    }
-
-                    if (!annotation.Description.Contains("\n"))
-                    {
-                        Console.WriteLine(annotation.Description);
-
-                        File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asWords.txt", annotation.Description);
-
-                        File.AppendAllText(@"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\text\mined_asWordsToString.txt", annotation.Description + " ");
-                    }
-                }
             }
+            return data;
         }
         
         public async Task Run()

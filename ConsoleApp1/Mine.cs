@@ -13,7 +13,7 @@ using System.Drawing;
 namespace MyApi
 
 {
-    class Program
+    public class Program
     {
        
     }

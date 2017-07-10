@@ -26,15 +26,15 @@ namespace GoogleApi
             FileFactory fact = new FileFactory();
 
             Image img = Image.FromFile(fact.GetImagePath(FileName));
-
             
-
-            try
-            {
+            try{
+                
                 new TextRecognition().Run().Wait();
+
             }
-            catch (AggregateException ex)
-            {
+
+            catch (AggregateException ex){
+
                 foreach (var err in ex.InnerExceptions)
                 {
                     Console.WriteLine("ERROR: " + err.Message);
@@ -48,8 +48,8 @@ namespace GoogleApi
                 fact.SaveFile(results);
 
                 Console.WriteLine("END_OF_API_REQUEST\nOutput file saved in: "+ fact.GetOutputPath());
-                string cont = "y";
-                Console.WriteLine("repeat: y/n "+cont);
+                string cont = "";
+                Console.WriteLine("repeat: y/n ");
                 
                 cont = Console.ReadLine();
                 while (true) {
@@ -103,7 +103,6 @@ namespace GoogleApi
                     ApplicationName = "Oauth2 Sample",
                 }
             );
-        
 
         }
     }

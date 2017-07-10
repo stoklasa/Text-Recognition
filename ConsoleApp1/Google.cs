@@ -11,17 +11,23 @@ using Google.Apis.Services;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Oauth2.v2;
 using Newtonsoft.Json;
+using TextRecognition.Factory;
 
 namespace GoogleApi
 {
     class TextRecognition
     {
-        static void Main(string[] args)
-        {
-            bool stop = false;
-            string imagePath = @"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\imgs\smlouva_3.jpg";
+        
+        static void Main(string[] args){
 
-            Image img = Image.FromFile(imagePath);
+            bool stop = false;
+            string FileName = Console.ReadLine();
+
+            FileFactory fact = new FileFactory();
+
+            Image img = Image.FromFile(fact.GetImagePath(FileName));
+
+            
 
             try
             {
@@ -38,8 +44,10 @@ namespace GoogleApi
             do{
                 
                 List<string> results = GoogleVisionQuery(img);
-                
-                Console.WriteLine("END_OF_API_REQUEST");
+
+                fact.SaveFile(results);
+
+                Console.WriteLine("END_OF_API_REQUEST\nOutput file saved in: "+ fact.GetOutputPath());
                 string cont = "y";
                 Console.WriteLine("repeat: y/n "+cont);
                 

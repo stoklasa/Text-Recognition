@@ -22,11 +22,15 @@ namespace GoogleApi
         static void Main(string[] args) {
 
             FileFactory fact = new FileFactory();
-            string[][] files =  new string[2][Directory.GetFiles(fact.GetFolder(), "*.jpg", SearchOption.AllDirectories).Length];
-            files[0] = DirectoryObject(Directory.GetFiles(fact.GetFolder(), "*.jpg", SearchOption.AllDirectories);
-            for (int i = 0; i < files.Length; i++) {
-                files[i] = new DirectoryObject(Directory.GetFiles(fact.GetFolder(), "*.jpg", SearchOption.AllDirectories), Directory.GetFiles(fact.GetFolder()));
-            }
+
+            
+
+            DirectoryObject files = new DirectoryObject(
+                Directory.GetFiles(fact.GetImageFolder())
+
+            );
+
+            
             try
             {
                 new TextRecognition().Run().Wait();
@@ -42,14 +46,19 @@ namespace GoogleApi
 
             }
 
-            foreach (var file in files)
+            for (int i = 0; i < files.GetSize(); i++)
             {
+                string CurrentFilename
+                  = Path.GetFileName(files.GetFileInfo(i));
+                string CurrentFilepath = files.GetFileInfo(i);
+
                 
-                Console.WriteLine(path);
-                Image img = Image.FromFile(file[0]);
+                Console.WriteLine(CurrentFilename);
+                Image img = Image.FromFile(CurrentFilepath);
                 
                 List<string> results = GoogleVisionQuery(img);
 
+                fact.SetTextPath(CurrentFilename);
                 fact.SaveFile(results);
 
                 Console.WriteLine("END_OF_API_REQUEST\nOutput file saved in: " + fact.GetOutputPath());
@@ -68,12 +77,14 @@ namespace GoogleApi
 
             var response = client.DetectText(image);
 
+            
             foreach (var annotation in response)
             {   
-                if (null!=annotation.Description)
+                if ((null!=annotation.Description));
                     data.Add(annotation.Description);
-
+                break;
             }
+                
             return data;
         }
         

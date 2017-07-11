@@ -72,6 +72,9 @@
     <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.27.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Auth.1.27.1\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis.CloudNaturalLanguageAPI.v1beta1, Version=1.18.0.664, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.CloudNaturalLanguageAPI.v1beta1.1.18.0.664\lib\net45\Google.Apis.CloudNaturalLanguageAPI.v1beta1.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis.Core, Version=1.27.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Core.1.27.1\lib\net45\Google.Apis.Core.dll</HintPath>
     </Reference>
@@ -128,6 +131,7 @@
     <Compile Include="FileFactory.cs" />
     <Compile Include="Google.cs" />
     <Compile Include="Mine.cs" />
+    <Compile Include="NaturalLanguage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

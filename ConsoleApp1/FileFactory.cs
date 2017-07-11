@@ -10,8 +10,7 @@ namespace TextRecognition.Factory
     class FileFactory
     {
         string FOLDER;
-
-        string FileName;
+        
 
         string TextPath;
 
@@ -32,12 +31,17 @@ namespace TextRecognition.Factory
 
         public void SetTextPath(string InputFileName)
         {
-            TextPath = FOLDER + InputFileName.Replace('.','_');
+            TextPath = FOLDER +@"\text\"+ InputFileName.Replace('.','_')+".txt";
         }
 
         public string GetFolder(){
 
             return FOLDER;
+        }
+        public string GetImageFolder()
+        {
+
+            return FOLDER+@"\imgs\";
         }
 
         public void SaveFile(List<string> data)

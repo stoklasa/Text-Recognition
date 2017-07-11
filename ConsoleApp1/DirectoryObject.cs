@@ -4,16 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRecognition.DirectoryObject;
+namespace TextRecognition.DirectoryObject
+
 {
     class DirectoryObject
     {
-        string path;
-        string name;
-        public DirectoryObject(string inPath,string inName)
+        
+        string[] name;
+        int size;
+        public DirectoryObject(string[] inName)
         {
             name = inName;
-            path = inPath;
+            size = inName.Length;
+        }
+        public string GetFileInfo(int index)
+        {
+            
+            return name[index];
+        }
+
+        public int GetSize()
+        {
+            return size;
         }
     }
 }

@@ -13,37 +13,51 @@ namespace TextRecognition.Factory
 
         string FileName;
 
-        string FullPath;
+        string TextPath;
 
-        public FileFactory(){        }
+        public FileFactory(){
+            FOLDER = Environment.CurrentDirectory;
+        }
 
         public string GetOutputPath()
         {
-            return FullPath;
+            return TextPath;
         }
 
-        public string GetImagePath(string file_name)
+        public void SetImagePath()
         {
-            FileName = @"data_from_" + file_name.Replace('.', '_');
-            FOLDER = Environment.CurrentDirectory;
-            FullPath = FOLDER + @"\\text\\" + FileName + ".txt";
-            return FOLDER +@"\\imgs\\"+ file_name;
+
+        }
+
+
+        public void SetTextPath(string InputFileName)
+        {
+            TextPath = FOLDER + InputFileName.Replace('.','_');
+        }
+
+        public string GetFolder(){
+
+            return FOLDER;
         }
 
         public void SaveFile(List<string> data)
         {
             FileStream InputStream;
-            
+
+            InputStream = File.OpenWrite(TextPath);
+
+            foreach (var description in data)
+            {
+                AddText(InputStream, description);
+            }
+            /*
             try
             {
-                Console.Write(FullPath);
-
-                InputStream = File.OpenWrite(FullPath);
+                    InputStream = File.OpenWrite(FullPath);
 
                     foreach (var description in data)
                     {
                         AddText(InputStream,description);
-                    
                     }
 
             }
@@ -52,8 +66,7 @@ namespace TextRecognition.Factory
                 Console.WriteLine(e.StackTrace);
                 return;
             }
-                
-            
+            */
         }
         private static void AddText(FileStream fs, string val){
             

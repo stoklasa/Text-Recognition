@@ -12,28 +12,28 @@ using Google.Apis.Auth.OAuth2;
 using Google.Apis.Oauth2.v2;
 using Newtonsoft.Json;
 using TextRecognition.Factory;
+using TextRecognition.DirectoryObject;
 
 namespace GoogleApi
 {
     class TextRecognition
     {
-        
-        static void Main(string[] args){
 
-            bool stop = false;
-            string FileName = Console.ReadLine();
+        static void Main(string[] args) {
 
             FileFactory fact = new FileFactory();
-
-            Image img = Image.FromFile(fact.GetImagePath(FileName));
-            
-            try{
-                
+            string[][] files =  new string[2][Directory.GetFiles(fact.GetFolder(), "*.jpg", SearchOption.AllDirectories).Length];
+            files[0] = DirectoryObject(Directory.GetFiles(fact.GetFolder(), "*.jpg", SearchOption.AllDirectories);
+            for (int i = 0; i < files.Length; i++) {
+                files[i] = new DirectoryObject(Directory.GetFiles(fact.GetFolder(), "*.jpg", SearchOption.AllDirectories), Directory.GetFiles(fact.GetFolder()));
+            }
+            try
+            {
                 new TextRecognition().Run().Wait();
-
             }
 
-            catch (AggregateException ex){
+            catch (AggregateException ex)
+            {
 
                 foreach (var err in ex.InnerExceptions)
                 {
@@ -41,35 +41,21 @@ namespace GoogleApi
                 }
 
             }
-            do{
+
+            foreach (var file in files)
+            {
+                
+                Console.WriteLine(path);
+                Image img = Image.FromFile(file[0]);
                 
                 List<string> results = GoogleVisionQuery(img);
 
                 fact.SaveFile(results);
 
-                Console.WriteLine("END_OF_API_REQUEST\nOutput file saved in: "+ fact.GetOutputPath());
-                string cont = "";
-                Console.WriteLine("repeat: y/n ");
-                
-                cont = Console.ReadLine();
-                while (true) {
-                    
-                    if((cont == "n") || (cont == "y")){
-                        break;
-                    }
-
-                    Console.Write("You entered Invalid key('" + cont + "'), try again. ");
-
-                    if (cont.Length > 1)
-                        Console.Write("Also enter single letter please. ");
-                    Console.WriteLine();
-                    cont = Console.ReadLine();
-                }
-                
-                if (cont == "n")
-                    stop = true;
-                                
-            } while (!stop);
+                Console.WriteLine("END_OF_API_REQUEST\nOutput file saved in: " + fact.GetOutputPath());
+               
+            }
+            Console.WriteLine("OCR done.");
         }
 
         public static List<string> GoogleVisionQuery(Image img)
@@ -77,7 +63,9 @@ namespace GoogleApi
             List<string> data = new List<string>();
 
             var image = img;
+
             var client = ImageAnnotatorClient.Create();
+
             var response = client.DetectText(image);
 
             foreach (var annotation in response)

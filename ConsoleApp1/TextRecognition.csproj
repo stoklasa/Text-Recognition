@@ -124,6 +124,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirectoryObject.cs" />
     <Compile Include="FileFactory.cs" />
     <Compile Include="Google.cs" />
     <Compile Include="Mine.cs" />

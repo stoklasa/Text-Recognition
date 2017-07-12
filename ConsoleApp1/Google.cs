@@ -54,12 +54,21 @@ namespace GoogleApi
 
                 
                 Console.WriteLine(CurrentFilename);
-                Image img = Image.FromFile(CurrentFilepath);
-                
-                List<string> results = GoogleVisionQuery(img);
+                try
+                {
+                    Image img = Image.FromFile(CurrentFilepath);
+                    List<string> results = GoogleVisionQuery(img);
 
-                fact.SetTextPath(CurrentFilename);
-                fact.SaveFile(results);
+                    fact.SetTextPath(CurrentFilename);
+                    fact.SaveFile(results);
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine("IS_NOT_IMAGE: "+e.StackTrace);
+                    continue;
+                }
+                
+                
 
                 Console.WriteLine("END_OF_API_REQUEST\nOutput file saved in: " + fact.GetOutputPath());
                
@@ -79,10 +88,20 @@ namespace GoogleApi
 
             
             foreach (var annotation in response)
-            {   
-                if ((null!=annotation.Description));
-                    data.Add(annotation.Description);
-                break;
+            {
+                if ((null != annotation.Description))
+                {
+                    if (annotation.Description.Contains("\n"))
+                    {
+
+                        data.Add(annotation.Description);
+                    }
+
+                    else if (!annotation.Description.Contains("\n"))
+                    {
+                        Console.WriteLine(annotation.Description);
+                    }
+                }
             }
                 
             return data;
@@ -90,7 +109,7 @@ namespace GoogleApi
         
         public async Task Run()
         {
-            string CRED_PATH = @"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\api_key\My First Project-ca909aeb1219.json";
+            string CRED_PATH = @"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\bin\Debug\api_key\My First Project-ca909aeb1219.json";
 
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", CRED_PATH);
 
@@ -104,5 +123,6 @@ namespace GoogleApi
             );
 
         }
+      
     }
 }

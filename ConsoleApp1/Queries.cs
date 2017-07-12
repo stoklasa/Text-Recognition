@@ -18,7 +18,9 @@ namespace TextRecognition.GoogleQueries
 
         public static async Task Run()
         {
-            string CRED_PATH = @"C:\Users\vojtech.stoklasa\Documents\Visual Studio 2017\Projects\TextRecognition\ConsoleApp1\bin\Debug\api_key\My First Project-ca909aeb1219.json";
+
+            string CRED_PATH = new Factory.FileFactory().GetFolder() + @"\api_key\My First Project-ca909aeb1219.json";
+            
 
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", CRED_PATH);
 
@@ -41,12 +43,27 @@ namespace TextRecognition.GoogleQueries
                 Content = text,
                 Type = Document.Types.Type.PlainText
             });
-            foreach(var entity in response)
+            WriteEntities(response.Entities);
+
+        }
+
+        private static void WriteEntities(IEnumerable<Entity> entities)
+        {
+            Console.WriteLine("Entities:");
+            foreach (var entity in entities)
             {
-
+                Console.WriteLine($"\tName: {entity.Name}");
+                Console.WriteLine($"\tType: {entity.Type}");
+                Console.WriteLine($"\tSalience: {entity.Salience}");
+                Console.WriteLine("\tMentions:");
+                foreach (var mention in entity.Mentions)
+                    Console.WriteLine($"\t\t{mention.Text.BeginOffset}: {mention.Text.Content}");
+                Console.WriteLine("\tMetadata:");
+                foreach (var keyval in entity.Metadata)
+                {
+                    Console.WriteLine($"\t\t{keyval.Key}: {keyval.Value}");
+                }
             }
-
-
         }
 
         public static List<string> GoogleVisionQuery(Image img)
@@ -64,9 +81,7 @@ namespace TextRecognition.GoogleQueries
             {
                 if ((null != annotation.Description))
                 {
-                    if (annotation.Description.Contains("\n"))
-                    {
-
+                    if (annotation.Description.Contains("\n")){
                         data.Add(annotation.Description);
                     }
 

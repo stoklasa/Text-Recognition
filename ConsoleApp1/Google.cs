@@ -5,19 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-//using Google.Apis.Services;
-//using Google.Apis.Auth.OAuth2;
-//using Google.Apis.Oauth2.v2;
-
-//using Google.Cloud.Vision.V1;
-//using Google.Cloud.Language.V1;
-
-
 using TextRecognition.Factory;
 using TextRecognition.DirectoryObject;
 using TextRecognition.GoogleQueries;
 using Google.Cloud.Vision.V1;
-using Google.Apis.Auth.OAuth2;
 
 namespace GoogleApi
 {
@@ -64,6 +55,7 @@ namespace GoogleApi
 
                     fact.SetTextPath(CurrentFilename);
                     fact.SaveFile(results);
+                    
                 }
                 catch (Exception e)
                 {

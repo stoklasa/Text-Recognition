@@ -46,6 +46,7 @@ namespace GoogleApi
                   = Path.GetFileName(files.GetFileInfo(i));
                 string CurrentFilepath = files.GetFileInfo(i);
 
+                string ReadableText = "";
 
                 Console.WriteLine(CurrentFilename);
                 try
@@ -55,7 +56,11 @@ namespace GoogleApi
 
                     fact.SetTextPath(CurrentFilename);
                     fact.SaveFile(results);
-                    
+                    foreach(var text in results)
+                    {
+                        ReadableText.Insert(ReadableText.Length, text);
+                    }
+                    NLPQuery(ReadableText);
                 }
                 catch (Exception e)
                 {

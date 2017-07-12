@@ -84,6 +84,9 @@
     <Reference Include="Google.Apis.PlatformServices, Version=1.27.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.1.27.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Cloud.Language.V1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Cloud.Language.V1.1.0.0-beta08\lib\net45\Google.Cloud.Language.V1.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Cloud.Vision.V1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=185c282632e132a0, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Cloud.Vision.V1.1.0.0-beta04\lib\net45\Google.Cloud.Vision.V1.dll</HintPath>
     </Reference>
@@ -131,7 +134,7 @@
     <Compile Include="FileFactory.cs" />
     <Compile Include="Google.cs" />
     <Compile Include="Mine.cs" />
-    <Compile Include="NaturalLanguage.cs" />
+    <Compile Include="Queries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

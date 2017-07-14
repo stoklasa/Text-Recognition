@@ -31,7 +31,8 @@ namespace TextRecognition.Factory
 
         public void SetTextPath(string InputFileName)
         {
-            TextPath = FOLDER +@"\text\"+ InputFileName.Replace('.','_')+".txt";
+            TextPath = FOLDER +@"\text\"+ InputFileName.Replace('.','(')+")"+".txt";
+            TextPath.ToLower();
         }
 
         public string GetFolder(){

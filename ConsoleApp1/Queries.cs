@@ -35,38 +35,37 @@ namespace TextRecognition.GoogleQueries
 
         }
 
-        public static void NLPQuery(string text)
+        public List<string[]> GetEntities(string text)
         {
+
+
+            List<string[]> entites = new List<string[]>();
+            
+
             var client = LanguageServiceClient.Create();
-            var  response = client.AnalyzeEntities(new Document()
+            var response = client.AnalyzeEntities(new Document()
             {
                 Content = text,
                 Type = Document.Types.Type.PlainText
             });
-            WriteEntities(response.Entities);
-
-        }
-
-        private static void WriteEntities(IEnumerable<Entity> entities)
-        {
-            Console.WriteLine("Entities:");
-            foreach (var entity in entities)
+            
+            foreach(var entity in response.Entities)
             {
-                Console.WriteLine($"\tName: {entity.Name}");
-                Console.WriteLine($"\tType: {entity.Type}");
-                Console.WriteLine($"\tSalience: {entity.Salience}");
-                Console.WriteLine("\tMentions:");
-                foreach (var mention in entity.Mentions)
-                    Console.WriteLine($"\t\t{mention.Text.BeginOffset}: {mention.Text.Content}");
-                Console.WriteLine("\tMetadata:");
-                foreach (var keyval in entity.Metadata)
-                {
-                    Console.WriteLine($"\t\t{keyval.Key}: {keyval.Value}");
-                }
+                string[] val = new string[5];
+                val[0] = entity.Name;
+                val[1] = entity.Type.ToString();
+                val[2] = entity.Metadata.Values.ToString();
+                val[3] = entity.Salience.ToString();
+                val[4] = entity.Mentions.ToString();
+
+                entites.Add(val);
             }
+            return entites;
+            
         }
 
-        public static List<string> GoogleVisionQuery(Image img)
+
+        public List<string> GoogleVisionQuery(Image img)
         {
             List<string> data = new List<string>();
 

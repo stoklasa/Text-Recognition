@@ -130,11 +130,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DirectoryObject.cs" />
-    <Compile Include="FileFactory.cs" />
-    <Compile Include="Google.cs" />
-    <Compile Include="Mine.cs" />
-    <Compile Include="Queries.cs" />
+    <Compile Include="Objects\DirectoryObject.cs" />
+    <Compile Include="Objects\FileFactory.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Queries\Auth.cs" />
+    <Compile Include="Queries\NLPQuery.cs" />
+    <Compile Include="Queries\Mine.cs" />
+    <Compile Include="Queries\VisionQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

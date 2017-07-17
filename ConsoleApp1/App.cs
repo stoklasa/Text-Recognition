@@ -8,7 +8,7 @@ using System.IO;
 using Google.Cloud.Vision.V1;
 
 using TextRecognition.Factory;
-using TextRecognition.DirectoryObject;
+using TextRecognition.Objects;
 using TextRecognition.GoogleQueries;
 
 namespace GoogleApi
@@ -28,7 +28,7 @@ namespace GoogleApi
             );
             try
             {
-                Queries.Run().Wait();
+                     Auth.Run().Wait();
             }
 
             catch (AggregateException ex)

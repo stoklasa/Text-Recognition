@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
+using System.Collections.Generic;
+using System.Text;
 
 namespace TextRecognition.Factory
 {
@@ -45,7 +43,7 @@ namespace TextRecognition.Factory
             return FOLDER+@"\imgs\";
         }
 
-        public void SaveFile(List<string> data)
+        public void SaveFile(IEnumerable<string> data)
         {
             FileStream InputStream;
 
@@ -55,24 +53,26 @@ namespace TextRecognition.Factory
             {
                 AddText(InputStream, description);
             }
-            /*
-            try
-            {
-                    InputStream = File.OpenWrite(FullPath);
-
-                    foreach (var description in data)
-                    {
-                        AddText(InputStream,description);
-                    }
-
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-                return;
-            }
-            */
+            InputStream.Close();
         }
+        /*
+        public void SaveFile(IEnumerable<string[]> data)
+        {
+            FileStream InputStream;
+
+            InputStream = File.OpenWrite(TextPath);
+
+            foreach (var description in data)
+            {
+                for(int i = 0; i < description.Length; i++)
+                {
+                    AddText(InputStream, description[i]);
+                }
+            }
+            InputStream.Close();
+        }
+        */
+
         private static void AddText(FileStream fs, string val){
             
             byte[] info = new UTF8Encoding(true).GetBytes(val);

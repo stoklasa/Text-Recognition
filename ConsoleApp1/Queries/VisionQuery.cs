@@ -1,17 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 using Google.Cloud.Vision.V1;
-using Google.Cloud.Language.V1;
 
-namespace TextRecognition.Objects
+namespace TextRecognition.Queries
 {
-    class VisionQuery
-    {
+    class VisionQuery   {
+
         public List<string> GoogleVisionQuery(Image img)
         {
             List<string> data = new List<string>();

@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 using Google.Cloud.Vision.V1;
 
 using TextRecognition.Factory;
 using TextRecognition.Objects;
-using TextRecognition.GoogleQueries;
+using TextRecognition.Queries;
 
 namespace GoogleApi
 {
@@ -26,6 +23,7 @@ namespace GoogleApi
                 Directory.GetFiles(fact.GetImageFolder())
 
             );
+
             try
             {
                      Auth.Run().Wait();
@@ -49,14 +47,20 @@ namespace GoogleApi
 
                 string ReadableText = "";
 
-                List<string[]> UnderstoodText;
+                List<Response> UnderstoodText;
+                List<List<string>> ResponsesAsStringList = new List<List<string>>();
                 List<string> RecognizedText; 
                 Console.WriteLine(CurrentFilename);
 
-                Queries gQueries = new Queries();
+                VisionQuery vision = new VisionQuery();
+                NLPQuery nlp = new NLPQuery();
+
+                Image img;
+
                 try
                 {
-                    
+                    img = Image.FromFile(CurrentFilepath);
+
                 }
                 catch (Exception e)
                 {
@@ -64,27 +68,49 @@ namespace GoogleApi
                     continue;
                 }
 
-                Image img = Image.FromFile(CurrentFilepath);
-                RecognizedText = gQueries.GoogleVisionQuery(img);
+                try
+                {
+                    RecognizedText = vision.GoogleVisionQuery(img);
 
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(CurrentFilename + "_VISION_API_ERROR: " + e.StackTrace);
+                    continue;
+                }
+                
                 fact.SetTextPath(CurrentFilename);
                 fact.SaveFile(RecognizedText);
-                foreach (var text in RecognizedText)
-                {
-                    ReadableText.Insert(ReadableText.Length, text);
 
-                    UnderstoodText = gQueries.GetEntities(text);
+                Console.WriteLine("OCR done.");
+
+                foreach (var text in RecognizedText) {
+
+                   ReadableText =  ReadableText.Insert(ReadableText.Length, text);
                 }
 
+                try
+                {
+                    UnderstoodText = nlp.GetEntities(ReadableText);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(CurrentFilename + "_LANGUAGE_API_ERROR: " + e.StackTrace);
+                    continue;
+                }
+                
                 Console.WriteLine("END_OF_API_REQUEST\nOutput file saved in: " + fact.GetOutputPath());
-                foreach(var val in UnderstoodText)
+
+
+                fact.SetTextPath(CurrentFilename + "-Entites");
+
+                foreach (var response in UnderstoodText)
                 {
-                    Console.WriteLine(val[0]);
-                    fact.SetTextPath(CurrentFilename + "-Entities");
+                    ResponsesAsStringList.Add(response.ResponsesToString(UnderstoodText));
                 }
+                fact.SaveFile(ResponsesAsStringList);
 
             }
-            Console.WriteLine("OCR done.");
         }
 
        

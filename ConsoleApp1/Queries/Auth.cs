@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 using Google.Apis.Services;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Oauth2.v2;
 
-namespace TextRecognition.Objects
+namespace TextRecognition.Queries
 
 {
     class Auth
     {
-        public static async Task Run()
+        public async static Task Run()
         {
 
             string CRED_PATH = new Factory.FileFactory().GetFolder() + @"\api_key\My First Project-ca909aeb1219.json";

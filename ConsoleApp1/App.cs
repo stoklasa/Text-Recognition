@@ -14,9 +14,7 @@ namespace GoogleApi
     {
 
         static void Main(string[] args) {
-
-            Console.WriteLine();
-
+            
             FileFactory fact = new FileFactory();
             
             DirectoryObject files = new DirectoryObject(
@@ -27,6 +25,7 @@ namespace GoogleApi
             try
             {
                      Auth.Run().Wait();
+                    
             }
 
             catch (AggregateException ex)
@@ -48,7 +47,7 @@ namespace GoogleApi
                 string ReadableText = "";
 
                 List<Response> UnderstoodText;
-                List<List<string>> ResponsesAsStringList = new List<List<string>>();
+                List<string> ResponsesAsStringList = new List<string>();
                 List<string> RecognizedText; 
                 Console.WriteLine(CurrentFilename);
 
@@ -91,7 +90,7 @@ namespace GoogleApi
 
                 try
                 {
-                    UnderstoodText = nlp.GetEntities(ReadableText);
+                   UnderstoodText = nlp.GetEntities(ReadableText);
                 }
                 catch (Exception e)
                 {
@@ -99,15 +98,14 @@ namespace GoogleApi
                     continue;
                 }
                 
-                Console.WriteLine("END_OF_API_REQUEST\nOutput file saved in: " + fact.GetOutputPath());
+                Console.WriteLine("END_OF_API_REQUEST, Output file saved in: " + fact.GetOutputPath());
 
 
+                
                 fact.SetTextPath(CurrentFilename + "-Entites");
 
-                foreach (var response in UnderstoodText)
-                {
-                    ResponsesAsStringList.Add(response.ResponsesToString(UnderstoodText));
-                }
+                ResponsesAsStringList = Response.ResponsesToString(UnderstoodText);
+
                 fact.SaveFile(ResponsesAsStringList);
 
             }

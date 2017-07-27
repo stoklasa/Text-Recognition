@@ -9,7 +9,6 @@ namespace TextRecognition.Factory
     {
         string FOLDER;
         
-
         string TextPath;
 
         public FileFactory(){
@@ -51,11 +50,13 @@ namespace TextRecognition.Factory
 
             foreach (var description in data)
             {
+                
                 AddText(InputStream, description);
+                
             }
             InputStream.Close();
         }
-        /*
+      
         public void SaveFile(IEnumerable<string[]> data)
         {
             FileStream InputStream;
@@ -64,14 +65,18 @@ namespace TextRecognition.Factory
 
             foreach (var description in data)
             {
-                for(int i = 0; i < description.Length; i++)
+                if (1 < description.Length)
                 {
-                    AddText(InputStream, description[i]);
+                    for (int i = 0; i < description.Length; i++)
+                    {
+                        AddText(InputStream, description[i]);
+                    }
                 }
+                else AddText(InputStream, description[0]);
             }
             InputStream.Close();
         }
-        */
+        
 
         private static void AddText(FileStream fs, string val){
             

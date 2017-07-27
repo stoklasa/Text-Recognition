@@ -11,9 +11,7 @@ namespace TextRecognition.Queries
         {
             
             List<Objects.Response> entites = new List<Objects.Response> ();
-
-           
-
+            
             var client = LanguageServiceClient.Create();
           
                 var response = client.AnalyzeEntities(new Document()
@@ -22,9 +20,6 @@ namespace TextRecognition.Queries
                     Type = Document.Types.Type.PlainText
                 });
             
-           
-            
-
             foreach (var entity in response.Entities)
             {
                 string[] mentions = new string[entity.Mentions.Count];

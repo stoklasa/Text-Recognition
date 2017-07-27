@@ -14,7 +14,6 @@ namespace TextRecognition.Objects
         }
         public string GetFileInfo(int index)
         {
-            
             return name[index];
         }
 

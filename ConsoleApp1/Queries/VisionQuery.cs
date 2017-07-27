@@ -10,13 +10,10 @@ namespace TextRecognition.Queries
         public List<string> GoogleVisionQuery(Image img)
         {
             List<string> data = new List<string>();
-
-            var image = img;
-
+            
             var client = ImageAnnotatorClient.Create();
 
-            var response = client.DetectText(image);
-
+            var response = client.DetectText(img);
 
             foreach (var annotation in response)
             {

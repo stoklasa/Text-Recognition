@@ -83,7 +83,7 @@ namespace GoogleApi
                 fact.SaveFile(RecognizedText);
 
                 Console.WriteLine("OCR done.");
-
+                /*
                 foreach (var text in RecognizedText) {
 
                    ReadableText =  ReadableText.Insert(ReadableText.Length, text);
@@ -109,7 +109,7 @@ namespace GoogleApi
                     ResponsesAsStringList.Add(response.ResponsesToString(UnderstoodText));
                 }
                 fact.SaveFile(ResponsesAsStringList);
-
+                */
             }
         }
 

@@ -7,7 +7,7 @@ namespace TextRecognition.Queries
 {
     class VisionQuery   {
 
-        public List<string> GoogleVisionQuery(Image img)
+        public List<string> GoogleVisionQueryAsList(Image img)
         {
             List<string> data = new List<string>();
 
@@ -22,15 +22,40 @@ namespace TextRecognition.Queries
             {
                 if ((null != annotation.Description))
                 {
-                    if (annotation.Description.Contains("\n")){
+                   
+                    if (!annotation.Description.Contains("\n"))
+                    {
                         data.Add(annotation.Description);
                     }
-
-                    else if (!annotation.Description.Contains("\n"))
-                    {
-                        Console.WriteLine(annotation.Description);
-                    }
                 }
+            }
+
+            return data;
+        }
+
+        public string GoogleVisionQueryAsText(Image img)
+        {
+            string data;
+
+            var image = img;
+
+            var client = ImageAnnotatorClient.Create();
+
+            var response = client.DetectText(image);
+
+
+            foreach (var annotation in response)
+            {
+                if ((null != annotation.Description))
+                {
+                    if (annotation.Description.Contains("\n"))
+                    {
+                        data = annotation.Description;
+                    }
+                    else data = "";
+
+                }
+                else throw new System.FormatException("Image does not contain any text");
             }
 
             return data;

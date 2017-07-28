@@ -70,7 +70,7 @@ namespace GoogleApi
 
                 try
                 {
-                    RecognizedText = vision.GoogleVisionQuery(img);
+                    RecognizedText = vision.GoogleVisionQueryAsList(img);
 
                 }
                 catch (Exception e)

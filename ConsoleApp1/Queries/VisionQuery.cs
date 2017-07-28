@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Newtonsoft.Json;
 using Google.Cloud.Vision.V1;
 
 namespace TextRecognition.Queries
@@ -10,25 +10,12 @@ namespace TextRecognition.Queries
         public List<string> GoogleVisionQueryAsList(Image img)
         {
             List<string> data = new List<string>();
-
-            var image = img;
-
+            
             var client = ImageAnnotatorClient.Create();
 
-            var response = client.DetectText(image);
+            var response = client.DetectText(img);
 
-
-            foreach (var annotation in response)
-            {
-                if ((null != annotation.Description))
-                {
-                   
-                    if (!annotation.Description.Contains("\n"))
-                    {
-                        data.Add(annotation.Description);
-                    }
-                }
-            }
+            var deserialzed = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.ToString());
 
             return data;
         }
@@ -36,12 +23,10 @@ namespace TextRecognition.Queries
         public string GoogleVisionQueryAsText(Image img)
         {
             string data;
-
-            var image = img;
-
+            
             var client = ImageAnnotatorClient.Create();
 
-            var response = client.DetectText(image);
+            var response = client.DetectText(img);
 
 
             foreach (var annotation in response)
